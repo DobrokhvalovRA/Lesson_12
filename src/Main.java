@@ -17,8 +17,6 @@ public class Main {
     }
 
     public static String[][] fillArray(String[][] array) {
-        int summ = 0;
-
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
                 array[i][j] = "2";
