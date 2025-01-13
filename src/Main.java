@@ -9,29 +9,28 @@ public class Main {
     public static void checkCharArray(String[][] array) throws MyArrayExeption {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
-                if (array[i][j].matches(("-?\\d+")) == false) {
+                if (!array[i][j].matches(("-?\\d+"))) {
                     throw new MyArrayExeption("Ой, тут в ячейке: " + i + "-" + j + " не цыфра, а вон че - " + array[i][j]);
                 }
             }
         }
     }
 
-    public static String[][] fillArray(String[][] array) {
+    public static void fillArray(String[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
                 array[i][j] = "2";
             }
         }
-        return array;
     }
 
 
     public static int sumArray(String[][] array) {
         int summ = 0;
 
-        for (int i = 0; i < array.length; i++) {
+        for (String[] strings : array) {
             for (int j = 0; j < array[0].length; j++) {
-                summ = summ + Integer.parseInt(array[i][j]);
+                summ = summ + Integer.parseInt(strings[j]);
             }
         }
         return summ;
@@ -39,8 +38,8 @@ public class Main {
 
     public static void main(String[] args) {
         String[][] array = new String[3][4];
-        array = fillArray(array);
-        array[1][3] = ".1";
+        fillArray(array);
+        array[1][3] = "3";
 
         try {
             checkCharArray(array);
